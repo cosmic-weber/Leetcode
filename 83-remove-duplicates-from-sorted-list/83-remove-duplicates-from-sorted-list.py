@@ -10,13 +10,13 @@ class Solution:
         while cur != None:
             lst.append(cur.val)
             cur = cur.next
-        lst1 = []
+        lst = list(set(lst))
+        lst.sort()
+#         for i in lst:
+#             if i not in lst1:
+#                 lst1.append(i)
         
-        for i in lst:
-            if i not in lst1:
-                lst1.append(i)
-        
-        return self.ll(lst1)
+        return self.ll(lst)
          
     
     def ll(self, arr):
