@@ -7,8 +7,8 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         lst, lst1 = [], []
-        print(self.levelTraversal(p, lst))
-        print(self.levelTraversal(q, lst1))
+        lst = self.levelTraversal(p, lst)
+        lst1 = self.levelTraversal(q, lst1)
         
         return lst == lst1
         
