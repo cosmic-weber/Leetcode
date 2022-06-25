@@ -10,6 +10,9 @@ class Solution:
         #         nums[j] = nums[j-1]
         #     nums[0] = n
                 
-        if k > m:
-            k = k % m
-        nums[:] = nums[m-k:] + nums[0:m-k]
+        # if k > m:
+        #     k = k % m
+        # nums[:] = nums[m-k:] + nums[0:m-k]
+        
+        for i in range(k):
+            nums.insert(0, nums.pop())
