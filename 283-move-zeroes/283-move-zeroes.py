@@ -4,17 +4,17 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         
-        lst = nums.count(0)
-        for i in range(lst):
-            nums.remove(0)
-            nums.append(0)
+        # lst = nums.count(0)
+        # for i in range(lst):
+        #     nums.remove(0)
+        #     nums.append(0)
         
-        # l, r = 0, 0
-        # while r < len(nums):
-        #     if nums[l] == 0:
-        #         nums.append(nums.pop(l))
-        #     else:   l+= 1
-        #     r += 1
+        l, r = 0, 0
+        while r < len(nums):
+            if nums[l] == 0:
+                nums.append(nums.pop(l))
+            else:   l+= 1
+            r += 1
                 
         
 # Additional Space approach
