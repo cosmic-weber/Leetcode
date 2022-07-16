@@ -6,9 +6,6 @@ class Solution:
                 lst.append(arr[j:i])
         sum_ = 0
         for x in lst:
-            if len(x) % 2 == 0:
-                lst.remove(x)
-
-        for x in lst:
-            sum_ += sum(x)
+            if len(x) % 2 != 0:
+                sum_ += sum(x)
         return sum_
