@@ -15,7 +15,6 @@ class Solution:
                 nums.append(nums.pop(l))
             else:   l+= 1
             r += 1
-                
         
 # Additional Space approach
 #         lst = []
