@@ -1,37 +1,38 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    void flatten(TreeNode* root) {
-        if(!root) return;
-        if(!root->left) {
-            flatten(root->right);
-            return;
-        }
-        if(!root->right) {flatten(root->left);
-                          root->right=root->left;
-                          root->left=NULL;
-                          return;
-                         }
-        TreeNode* temp=root->right;
-        flatten(root->left);
-        if(root->left) root->right=root->left;
-        root->left=NULL;
-        TreeNode* f=root;
-        while(f->right){
-            f=f->right;
-        }
-        f->right=temp;
-        if(f->right) flatten(f->right);
-        return;
-    }
-};
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        def traverse(node):
+            if not node:
+                return None
+            if node.left:
+                n = node.left
+                
+                while n.right:
+                    n = n.right
+                n.right = node.right
+                node.right = node.left
+                node.left = None
+            traverse(node.right)
+        traverse(root)
+        
+#         def dfs(root):
+        
+#             if not root:
+#                 return None
+            
+#             dfs(root.right)
+#             dfs(root.left)
+            
+#             root.right, root.left, self.prev = self.prev, None, root
+#             return root
+        
+#         self.prev = None
+#         dfs(root)
