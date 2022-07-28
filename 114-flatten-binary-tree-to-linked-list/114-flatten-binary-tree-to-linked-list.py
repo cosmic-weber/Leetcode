@@ -23,16 +23,3 @@ class Solution:
             traverse(node.right)
         traverse(root)
         
-#         def dfs(root):
-        
-#             if not root:
-#                 return None
-            
-#             dfs(root.right)
-#             dfs(root.left)
-            
-#             root.right, root.left, self.prev = self.prev, None, root
-#             return root
-        
-#         self.prev = None
-#         dfs(root)
