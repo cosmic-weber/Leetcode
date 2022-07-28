@@ -5,21 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    prev = None
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
-        self.prev = None
+        
         if root:
             self.flatten(root.right)
             self.flatten(root.left)
-            temp = root.right
             root.left = None
             root.right = self.prev
             self.prev = root
-            while root.right:
-                root = root.right
-            root.right = temp
+            
+            
+            # temp = root.right
+            # while root.right:
+            #     root = root.right
+            # root.right = temp
 #         def traverse(node):
 #             if not node:
 #                 return None
