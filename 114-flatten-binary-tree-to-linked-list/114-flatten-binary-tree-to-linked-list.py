@@ -9,17 +9,28 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-        def traverse(node):
-            if not node:
-                return None
-            if node.left:
-                n = node.left
+        self.prev = None
+        if root:
+            self.flatten(root.right)
+            self.flatten(root.left)
+            temp = root.right
+            root.left = None
+            root.right = self.prev
+            self.prev = root
+            while root.right:
+                root = root.right
+            root.right = temp
+#         def traverse(node):
+#             if not node:
+#                 return None
+#             if node.left:
+#                 n = node.left
                 
-                while n.right:
-                    n = n.right
-                n.right = node.right
-                node.right = node.left
-                node.left = None
-            traverse(node.right)
-        traverse(root)
+#                 while n.right:
+#                     n = n.right
+#                 n.right = node.right
+#                 node.right = node.left
+#                 node.left = None
+#             traverse(node.right)
+#         traverse(root)
         
