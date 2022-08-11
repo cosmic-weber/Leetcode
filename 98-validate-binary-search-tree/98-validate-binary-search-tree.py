@@ -16,6 +16,7 @@ class Solution:
                 DFS(root.right)
             
         DFS(root)
+        print(lst)
         larger = lst[0]
         for i in range(1, len(lst)):
             if larger >= lst[i]:
